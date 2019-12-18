@@ -79,7 +79,7 @@ void hashing()
 
 void text_interface()
 {
-    char t=' ';
+    char command=' ';
     while (true)
     {
         cout<<"There are 2 types of queries:"<<endl;
@@ -89,7 +89,7 @@ void text_interface()
         cout<<"3 - exit"<<endl;
         cout<<"Choose type of query: ";
         cin>>t;
-        if (t=='1')
+        if (command=='1')
         {
             cout<<"Enter name of team: ";
             string qs;
@@ -108,7 +108,7 @@ void text_interface()
             if (f) cout<<"YES"<<endl;
             else cout<<"NO"<<endl;
         }
-        else if (t=='2')
+        else if (command=='2')
         {
             cout<<"Enter name of player: ";
             string qs;
