@@ -6,6 +6,8 @@ typedef unsigned int uint;
 
 const int PRIME=41,MAX_TEAM_COUNT=37,MAX_PLAYER_COUNT=55;
 
+const INPUT_FILENAME="input.txt";
+
 struct Team
 {
     string name;
@@ -19,9 +21,7 @@ vector<string> hashed_players[MAX_PLAYER_COUNT],hashed_teams[MAX_TEAM_COUNT];
 
 void read()
 {
-    //freopen("input.txt","r",stdin);
-    ifstream in;
-    in.open("input.txt");
+    ifstream in(INPUT_FILENAME);
 	in>>n;
 	in.ignore();
 	for (int i=0;i<n;i++)
