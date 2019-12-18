@@ -4,7 +4,7 @@ using namespace std;
 
 typedef unsigned int uint;
 
-const int PRIME=41,MAXN=37,MAXP=55;//MAXN - maximal count of teams, MAXP - maximal count of players in the team
+const int PRIME=41,MAX_TEAM_COUNT=37,MAX_PLAYER_COUNT=55;
 
 struct Team
 {
@@ -13,9 +13,9 @@ struct Team
 };
 
 int n;//count of teams
-Team teams[MAXN];
+Team teams[MAX_TEAM_COUNT];
 //vector with index i consists of strings with hash=i
-vector<string> hashed_players[MAXP],hashed_teams[MAXN];
+vector<string> hashed_players[MAX_PLAYER_COUNT],hashed_teams[MAX_TEAM_COUNT];
 
 void read()
 {
@@ -67,11 +67,11 @@ void hashing()
 {
     for (int i=0;i<n;i++)
     {
-        int ht=get_hash(teams[i].name)%MAXN;//hash of the team's name
+        int ht=get_hash(teams[i].name)%MAX_TEAM_COUNT;//hash of the team's name
         hashed_teams[ht].push_back(teams[i].name);
         for (int j=0;j<teams[i].players.size();j++)
         {
-            int hp=get_hash(teams[i].players[j])%MAXP;//hash of the player's name
+            int hp=get_hash(teams[i].players[j])%MAX_PLAYER_COUNT;//hash of the player's name
             hashed_players[hp].push_back(teams[i].players[j]);
         }
     }
@@ -95,7 +95,7 @@ void text_interface()
             string qs;
             cin.ignore();
             getline(cin,qs);
-            int hash_qs=get_hash(qs)%MAXN;
+            int hash_qs=get_hash(qs)%MAX_TEAM_COUNT;
             bool f=0;
             for (int i=0;i<hashed_teams[hash_qs].size();i++)
             {
@@ -114,7 +114,7 @@ void text_interface()
             string qs;
             cin.ignore();
             getline(cin,qs);
-            int hash_qs=get_hash(qs)%MAXP;
+            int hash_qs=get_hash(qs)%MAX_PLAYER_COUNT;
             bool f=0;
             for (int i=0;i<hashed_players[hash_qs].size();i++)
             {
