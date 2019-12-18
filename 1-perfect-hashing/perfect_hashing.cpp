@@ -6,7 +6,7 @@ typedef unsigned int uint;
 
 const int PRIME=41,MAX_TEAM_COUNT=37,MAX_PLAYER_COUNT=55;
 
-const INPUT_FILENAME="input.txt";
+const string INPUT_FILENAME="input.txt";
 
 struct Team
 {
